@@ -1,5 +1,5 @@
 {
-  "name": "Postman Mock Server",
+  "name": "PostmanMockServer",
   "version": "1.0.0",
   "description": "Mock server for postman collection.",
   "main": "index.js",
