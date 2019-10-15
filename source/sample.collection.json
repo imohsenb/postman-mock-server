@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "9986384f-2212-4565-9b36-c42e6f518fcd",
+		"name": "SampleCollection",
+		"description": "This is a sample collection for Postman Mock Server application.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "sub",
+			"item": [
+				{
+					"name": "sample sub get",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer f34f24f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{url}}/sample",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"sample"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "sample get",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer f34f24f",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://{{url}}/sample",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"sample"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 15 Oct 2019 06:57:25 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": "{\n\t\"result\": \"ok\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "sample get",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer f34f24f",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{url}}/sample",
+					"protocol": "http",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"sample"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "sample get",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer f34f24f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{url}}/sample",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"sample"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Oct 2019 06:57:25 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n\t\"result\": \"ok\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "5160334e-4f0c-4f5c-ae55-a1929cede1db",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "28bb1f5d-b777-4a26-ac85-e6ab826a6c5b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
