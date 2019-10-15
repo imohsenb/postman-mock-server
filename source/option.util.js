@@ -33,8 +33,14 @@ class Option {
     _parseInputFile()
     {
         var file = this.argv['input'] || this.argv['i']
-        this.path = path.join(__dirname, file);
-        fs.exists(this.path, res => {            
+
+        if(typeof file === 'undefined') {
+            this.cb(false, new Error("Please specify collection through -i argument"))
+        }
+
+        this.path = file;
+        fs.exists(this.path, res => {   
+            console.log(this.path)         
             this.cb(res)
         })
     }
