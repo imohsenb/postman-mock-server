@@ -7,14 +7,111 @@
 	},
 	"item": [
 		{
-			"name": "sub",
-			"item": [
+			"name": "sample get",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer f34f24f",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8082/sample",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"sample"
+					]
+				}
+			},
+			"response": [
 				{
-					"name": "sample sub get",
-					"request": {
-						"auth": {
-							"type": "noauth"
+					"name": "sample get no content",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer f34f24f",
+								"type": "text"
+							},
+							{
+								"key": "X-Response",
+								"value": "400",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
 						},
+						"url": {
+							"raw": "http://localhost:8082/sample",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"sample"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "36"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"24-Ay4ui9ChCDSutidjOq2s7WChBFQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Oct 2019 08:57:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "sample get error",
+					"originalRequest": {
 						"method": "GET",
 						"header": [
 							{
@@ -38,93 +135,15 @@
 							]
 						}
 					},
-					"response": [
-						{
-							"name": "sample get",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "bearer f34f24f",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "http://{{url}}/sample",
-									"protocol": "http",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"sample"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Server",
-									"value": "Kestrel"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "ASP.NET"
-								},
-								{
-									"key": "Date",
-									"value": "Tue, 15 Oct 2019 06:57:25 GMT"
-								},
-								{
-									"key": "Content-Length",
-									"value": "0"
-								}
-							],
-							"cookie": [],
-							"body": "{\n\t\"result\": \"ok\"\n}"
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "sample get",
-			"request": {
-				"auth": {
-					"type": "noauth"
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"code\": 400,\n    \"message\": \"Bad Request\"\n}"
 				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "bearer f34f24f",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://{{url}}/sample",
-					"protocol": "http",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"sample"
-					]
-				}
-			},
-			"response": [
 				{
-					"name": "sample get",
+					"name": "sample get success",
 					"originalRequest": {
 						"method": "GET",
 						"header": [
