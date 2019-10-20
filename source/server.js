@@ -87,56 +87,80 @@ class Server {
         var response = item.response
         var path = `/${request.url.path.join("/")}`;
 
-        response.map(resp => {
+        switch(request.method) {
+            case 'POST':
+                this._servPost(response, request, path)
+            break;
+            case 'PUT':
+                this._servPut(response, request, path)
+            break;
+            case 'PATCH':
+                this._servPatch(response, request, path)
+            break;
+            case 'DELETE':
+                this._servDelete(response, request, path)
+            break;
+            default:
+                this._servGet(response, request, path)
+            break;
+        }
+    }
 
-            switch(request.method) {
-                case 'POST':
-                    this._servPost(resp, path)
-                break;
-                case 'PUT':
-                    this._servPut(resp, path)
-                break;
-                case 'PATCH':
-                    this._servPatch(resp, path)
-                break;
-                case 'DELETE':
-                    this._servDelete(resp, path)
-                break;
-                default:
-                    this._servGet(resp, path)
-                break;
-            }
+    reply(req, res, originalResp, originalReq) {
 
+        var responses= {};
+
+        originalResp.map(item => {
+            responses[item.code] = item
         })
+
+        var code = 200;
+        if (req.headers.hasOwnProperty('x-response')) {
+            code = parseInt(req.headers['x-response']);
+        }
+        if (responses.hasOwnProperty(code)) {
+            var body = responses[code].body;
+            try {
+                body = JSON.parse(body);
+            }
+            catch (e) { }
+            res.status(code).json(body);
+        }
+        else {
+            res.status(404).json({
+                "message": "code not found!"
+            });
+        }
     }
 
-    _servGet(resp, path)
+    _servGet(originalResp, originalReq, path)
     {
-        var code = JSON.parse(resp.code)
-        var body = JSON.parse(resp.body)
-        this.app.get(`${path}`, (req, res) => res.status(code).json(resp))
+        this.app.get(`${path}`, (req, res) => { 
+            this.reply(req, res, originalResp, originalReq);
+        }) 
     }
 
-    _servPost(resp, path)
+    _servPost(originalResp, originalReq, path)
     {
-        var code = JSON.parse(resp.code)
-        var body = JSON.parse(resp.body)
-        this.app.post(`${path}`, (req, res) => res.status(code).json(resp))
+        this.app.post(`${path}`, (req, res) => { 
+            this.reply(req, res, originalResp, originalReq);
+        }) 
     }
 
-    _servPut(resp, path)
+    _servPut(originalResp, originalReq, path)
     {
-        var code = JSON.parse(resp.code)
-        var body = JSON.parse(resp.body)
-        this.app.put(`${path}`, (req, res) => res.status(code).json(resp))
+        this.app.put(`${path}`, (req, res) => { 
+            this.reply(req, res, originalResp, originalReq);
+        }) 
     }
 
-    _servPatch(resp, path)
+    _servPatch(originalResp, originalReq, path)
     {
-        var code = JSON.parse(resp.code)
-        var body = JSON.parse(resp.body)
-        this.app.patch(`${path}`, (req, res) => res.status(code).json(resp))
+        this.app.patch(`${path}`, (req, res) => { 
+            this.reply(req, res, originalResp, originalReq);
+        }) 
     }
+    
 }
 
 const server = new Server();

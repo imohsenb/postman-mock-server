@@ -10,7 +10,8 @@ option.init(argv, result => {
         console.log("Initialized...")
         server.init(option);
     } else {
-        throw new Error("unable to find input file!")
+        console.error("unable to find input file!");
+        process.exit();
     }
 });
 
