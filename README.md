@@ -22,6 +22,15 @@ Also you can change server port with `-p` argument
 $ pms -p 8080 -i ./sample.collection.json 
 ```
 
+### Test Different Response Type
+If you would like to test different response types, first you need to add more example response in your postman collection. Then you can send `x-response` in `header` with your reponse code that is expected. Default value for this header is `200`, therefor you get success result without sending this header. If your requested code doesn't exists in examples then service respond with `404` code and proper message.
+
+```shell
+curl -X GET http://localhost:8082/sample -H 'X-Response: 400'
+```
+
+
+
 License
 -------
 
