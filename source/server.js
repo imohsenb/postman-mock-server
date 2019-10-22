@@ -160,6 +160,13 @@ class Server {
             this.reply(req, res, originalResp, originalReq);
         }) 
     }
+
+    _servDelete(originalResp, originalReq, path)
+    {
+        this.app.delete(`${path}`, (req, res) => { 
+            this.reply(req, res, originalResp, originalReq);
+        }) 
+    }
     
 }
 
