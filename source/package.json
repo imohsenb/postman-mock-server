@@ -1,6 +1,6 @@
 {
   "name": "PostmanMockServer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Mock server for postman collection.",
   "main": "index.js",
   "scripts": {
